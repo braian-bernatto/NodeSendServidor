@@ -3,7 +3,7 @@ const multer = require('multer')
 const fs = require('fs')
 const Enlaces = require('../models/Enlace')
 
-exports.subirArchivos = async (req, res) => {
+exports.subirArchivos = async (req, res, next) => {
   const configuracionMulter = {
     limits: { fileSize: req.usuario ? 1024 * 1024 * 10 : 1024 * 1024 },
     storage: (fileStorage = multer.diskStorage({
